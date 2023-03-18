@@ -40,10 +40,8 @@ function Signup() {
       const savedUser = await response.json();
       console.log(savedUser);
       if (response.status === 200) {
-      // Redirect to a different page, or show a success message
       alert('Signup successful');
       } else {
-      // Show an error message
       alert('Signup failed');
       }
       } catch (error) {

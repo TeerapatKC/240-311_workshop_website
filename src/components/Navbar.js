@@ -30,7 +30,7 @@ const Navbar = ({ isLoggedIn, handleLogout }) => {
     <div className="navbar-container">
     <>
       <nav className="navbar">
-        <h3 className="logo">Logo</h3>
+        <h3 className="logo">เรียกช่าง</h3>
         <ul className={Mobile ? "nav-links-mobile" : "nav-links"} onClick={() => setMobile(false)}>
           <Link to="/" className="home">
             <li>หน้าหลัก</li>

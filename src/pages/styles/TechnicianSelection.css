@@ -152,7 +152,7 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #fedc57;
     color: white;
     border-radius: 5px;
     border: none;
@@ -160,7 +160,7 @@
   }
   
   .ts-confirm-button:hover {
-    background-color: #0056b3;
+    background-color: #efbe10;
   }
 
   .ts-filter-container {

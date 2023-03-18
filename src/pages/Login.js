@@ -21,12 +21,9 @@ function Login({ setShowLoginPopup }) {
       const data = await response.json();
       if (response.status === 200) {
         console.log("Logged in!");
-        // Save the user data to the state or local storage, depending on your implementation
-        // Close the login popup
         setShowLoginPopup(false);
-        // Redirect the user to another page or show a success message
         alert("Login successful");
-        history.push("/"); // Redirect to the home page or any other protected page
+        history.push("/");
       } else {
         alert("Login failed: " + data.message);
       }
