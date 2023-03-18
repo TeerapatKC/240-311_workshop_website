@@ -1,71 +1,42 @@
-# Getting Started with Create React App
+หัวข้อ:
+  เว็บไซต์จัดหาช่างออนไลน์
+  
+สมาชิก:
+  - 6310110219, นายธีรภัทร คงชู, งานหลักที่รับผิดชอบ: Back-end
+  - 6310110374, นายภูริ ชาโนจุติ, งานหลักที่รับผิดชอบ: Font-end
+  - 6310110668, นายศิรณัฐ ถนอมศรีมงคล, งานหลักที่รับผิดชอบ: Database
+  
+  
+ อธิบายวิธีการทำงาน:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![home](https://user-images.githubusercontent.com/90532264/226110021-a1515d4b-94b6-48bf-84f2-051b03f0f644.png)
+- ในหน้าแรกจะเป็นหน้าหลักโดยขะมีข้อความแสดงอธิยายเกี่ยวกับเว็บไซต์
+- ส่วน navigation bar จะมีอยู่ 3 หัวข้อ คือ หน้าหลัก, จองช่าง, เข้าสู่ระบบ 
+- ถ้าทำการกดไปที่หัวข้อ หน้าหลัก ระบบจะลิงค์ไปที่หน้า Home
+- ถ้าทำการกดไปที่หัวข้อ จองช่าง, ระบบจะลิงค์ไปที่หน้า TechnicianSelection แต่จะไปหน้านี้ได้ก็ต่อเมื่อทำการ login แล้วเท่านั้น
+- ถ้าทำการกดไปที่หัวข้อ เข้าสู่ระบบ ระบบจะลิงค์ไปที่หน้า Login เพื่อให้ผู้ใช้ลงชื่อเข้าสู่ระบบ
 
-In the project directory, you can run:
 
-### `npm start`
+![login](https://user-images.githubusercontent.com/90532264/226110308-6620cf19-b9be-4240-b031-0024333c671d.png)
+- หน้านี้เป็นหน้า login ไว้สำหรับลงชื่อเข้าใช้โดยผู้ใช้ต้องกรอก email กับ password ที่ได้ทำการลงทะเบียนไว้แล้วกับระบบ
+- หน้านี้จะแสดง popup ขึ้นมาเมื่อผู้ใช้ได้ทำการกดหัวข้อ เข้าสู่ระบบ บนแถบ  navigation bar
+- โดยข้อมูล email, และ password ที่ผู้ใช้กรอก จะถูกนำไปเช็คว่าตรงกับข้อมูลในฐานข้อมูล mongodb หรือไม่ โดยใช้ express ในการช่วยรับ-ส่งข้อมูล
+- ถ้าหากผู้ใช้ไม่ได้ลงทะเบียน สามารถกดไปที่ปุ่ม sign up เพื่อทำการลงทะเบียนได้
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![signup](https://user-images.githubusercontent.com/90532264/226110916-1def6967-cb54-4cd3-a314-f55382ab96fd.png)
+- จากหน้า Signup Page เป็นการ pop up ที่ต่อมาจากหน้า login สำหรับผู้ใช้ที่ยังไม่มี user id    
+- จะมีแบบฟอร์มการลงทะเบียนสำหรับการ sign up โดยให้ผู้ใช้กรอก ชื่อ, นามสกุล, E-mail, Password, Confirm Password ซึ่งหากผู้ใช้กรอกแบบฟอร์มนี้เสร็จ ระบบจะทำการส่งข้อมูลที่ผู้ใช้กรอกไปยังฐานข้อมูล mongodb ชื่อว่า technicianDB และ collection ชื่อว่า User 
 
-### `npm test`
+![reserve](https://user-images.githubusercontent.com/90532264/226110961-7ef3693e-0623-4180-89b2-dde43445a124.png)
+- ถ้าหากผู้ใช้ทำการเข้าสู่ระบบมาแล้วก็จะสามารถเลือกหัวข้อ จองช่าง บน navigation bar ได้
+- โดยหน้านี้จะแสดงข้อมูลของช่างที่อยู่ในระบบและเรียงเป็นระเบียบอยู่ ซึ่งในข้อมูลของช่างจะแสดงข้อมูล ชื่อจริง นามสุกล, ชื่อเล่น, เบอร์โทร, ประสบการณ์, อาชีพ, และรูปของช่าง โดยข้อมูลต่างๆของช่างจะถูกสร้างขึ้นเก็บไว้ โดยใช้ mongoose ในการสร้างชนิดข้อมูลและเก็บไว้ในฐานข้อมูล mongoDB ที่ชื่อว่า technicianDB และ collection ชื่อว่า Technician
+- หากเราต้องการเลือกช่างก็ให้ทำการ ติ๊กถูก ที่กล่อง checkbox ของช่างแต่ละคน ซึ่งผู้ใช้สามารถ ติ๊กถูก เลือกช่างได้หลายคน และหากผู้ใช้ต้องการยืนยันเพียงกดที่ ปุ่มยืนยันการเลือกช่างที่อยู่ตรงล่างล่างของจอและถ้าหากกดไปแล้วเว็บจะทำการ route ไปยังหน้า ช่างที่เลือก
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![filter](https://user-images.githubusercontent.com/90532264/226111716-db1627b3-50e0-4157-9ffb-8413d9bf7a24.png)
+- ซึ่งในหน้านี้จะมีการใช้ filter เป็นตัวช่วยในการกรองอาชีพของช่าง เพื่อหาแต่อาชีพที่ต้องการจองช่างได้ โดยจะแสดง filter อยู่ทางด้านซ้ายบนของหน้า จองช่าง
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# 240-311_workshop_website
+![selected](https://user-images.githubusercontent.com/90532264/226110980-9fca7b0c-2386-462a-966c-6327ce6aebb4.png)
+- หน้าช่างที่เลือก เป็นหน้าผลลัพธ์จากการเลือกช่าง ในส่วนของหน้านี้จะแสดงชื่อ และข้อมูลที่จำเป็น รวมถึงหน้าของช่างที่เลือกโดยจะขึ้นจำนวนตามที่ได้เลือกไว้ก่อนหน้า
