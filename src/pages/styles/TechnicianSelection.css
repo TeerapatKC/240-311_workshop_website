@@ -1,0 +1,169 @@
+    @media (max-width: 320px) {
+    .ts-technician-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ts-technician-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ts-technician-card {
+      flex: 0 0 calc(50% - 10px);
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .ts-technician-card {
+      flex: 0 0 calc(100% - 10px);
+    }
+  }
+  
+
+
+.ts-technician-selection {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .ts-technician-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .ts-technician-card {
+    flex: 0 0 calc(25% - 10px);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .ts-technician-card .technician-info {
+    flex: 1;
+  }
+  
+  .ts-technician-card img {
+    width: 50%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .ts-technician-card h3 {
+    margin: 10px 0;
+  }
+  
+  .ts-technician-card p {
+    margin: 0;
+  }
+  
+  input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .ts-technician-selection label::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+  
+  .ts-technician-selection label {
+    display: inline-block;
+    padding-left: 25px;
+    position: relative;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  
+  input[type="checkbox"]:checked + label::before {
+    content: "✔";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .ts-checkbox-label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .ts-checkbox-label .ts-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .ts-checkbox-label .ts-checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .ts-checkbox-label:hover .ts-checkbox-custom {
+    background-color: #f5f5f5;
+  }
+  
+  .ts-checkbox-label .ts-checkbox-input:checked ~ .ts-checkbox-custom:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: #555;
+    border-radius: 2px;
+  }
+  
+  .ts-confirm-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ts-confirm-button:hover {
+    background-color: #0056b3;
+  }
+
+  .ts-filter-container {
+    margin-bottom: 10px;
+  }
+  

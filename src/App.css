@@ -2,20 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +13,100 @@
   color: white;
 }
 
-.App-link {
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
+}
+
+.App-title {
+  margin: 1rem 0 0.5rem;
+  font-size: 2.5rem;
+}
+
+.App-subtitle {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.App-nav {
+  background-color: #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.App-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.App-nav li {
+  margin-right: 1rem;
+}
+
+.App-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.App-nav a:hover {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-main {
+  margin: 2rem 0;
+}
+
+.App-main h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.App-main article {
+  margin-bottom: 2rem;
+}
+
+.App-main h3 {
+  font-size: 1.5rem;
+}
+
+.App-main img {
+  max-width: 100%;
+}
+
+.App-main p {
+  margin-bottom: 1rem;
+}
+
+.App-main button {
+  background-color: #61dafb;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.App-main button:hover {
+  background-color: #51b6d3;
+}
+
+.App-footer {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
 }

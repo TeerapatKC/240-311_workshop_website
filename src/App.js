@@ -1,24 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import TechnicianSelection from "./pages/TechnicianSelection";
+import SelectedTechnicians from "./pages/SelectedTechnicians";
+import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
+
+function Main({ isLoggedIn, handleLogout, handleLogin }) {
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/signup") {
+      setShowNavbar(false);
+    } else {
+      setShowNavbar(true);
+    }
+  }, [location]);
+
+  return (
+    <>
+      {showNavbar && (
+        <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      )}
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login handleLogin={handleLogin} />
+        </Route>
+        <Route path="/signup" exact>
+          <Signup />
+        </Route>
+        <Route path="/technicianSelection" exact>
+          <TechnicianSelection />
+        </Route>
+        <Route path="/selected-technicians" exact>
+          <SelectedTechnicians />
+        </Route>
+      </Switch>
+    </>
+  );
+}
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Main isLoggedIn={isLoggedIn} handleLogout={handleLogout} handleLogin={handleLogin} />
+    </Router>
   );
 }
 
